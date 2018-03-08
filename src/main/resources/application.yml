@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: pumer
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/html/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+  mvc:
+    view:
+      404:
+datasource:
+   druid:
+      url: jdbc:mysql://qdm114116425.my3w.com:3306/qdm114116425_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
+      username: qdm114116425
+      password: wangzhen
+      filters: stat,slf4j
+      initialSize: 5
+      maxActive: 100
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wz.pumer.beans
+  check-config-location: true
+
+pagehelper:
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  page-size-zero: true
+  reasonable: true
+  support-methods-arguments: true

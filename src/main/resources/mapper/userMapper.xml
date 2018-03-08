@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wz.pumer.dao.IUserDao">
+
+
+    <select id="queryList" resultType="com.wz.pumer.beans.UserBean" >
+        select *  from  `blob_user`
+    </select>
+
+    <select id="queryUserByNameAndPwd" resultType="com.wz.pumer.beans.UserBean">
+        SELECT * FROM `blob_user` WHERE `username`  = #{username} and `password` = #{password}
+
+    </select>
+    <update id="updateUserInfo" parameterType="com.wz.pumer.beans.UserBean">
+        UPDATE `blob_user`
+         <if test="headimg!=null">
+             SET `headimg` =#{headimg}
+         </if>
+         WHERE `id` =#{id}
+
+    </update>
+</mapper>
