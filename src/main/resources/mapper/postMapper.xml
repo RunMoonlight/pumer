@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wz.pumer.dao.IPostDao">
+
+    <resultMap id="PostBean" type="com.wz.pumer.beans.PostBean">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="content" column="content"></result>
+        <result property="authorId" column="author_id"></result>
+        <result property="browseNum" column="browse_num"></result>
+        <result property="likesNum" column="likes_num"></result>
+        <result property="themeId" column="theme_id"></result>
+        <result property="hotLevelId" column="hot_level_id"></result>
+        <result property="crateTime" column="crate_time"></result>
+        <result property="liveTypeId" column="live_type_id"></result>
+        <result property="backgroundUrl" column="background_url"></result>
+
+
+    </resultMap>
+
+
+
+
+    <select id="getListPosts" resultMap="PostBean" >
+          select
+            `id`,
+            `title`,
+            `content`,
+            `author_id`,
+            `browse_num`,
+            `likes_num`,
+            `theme_id`,
+            `hot_level_id`,
+            `crate_time`,
+            `live_type_id`,
+            `background_url`
+          from `pumer_post`
+    </select>
+
+    <select id="getUserByNameAndPwd" resultMap="PostBean">
+        SELECT * FROM `blob_user` WHERE `username`  = #{username} and `password` = #{password}
+
+    </select>
+    
+</mapper>

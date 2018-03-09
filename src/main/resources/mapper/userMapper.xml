@@ -3,12 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wz.pumer.dao.IUserDao">
 
+    <resultMap id="UserBean" type="com.wz.pumer.beans.PostBean">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="nickname" column="name"></result>
+        <result property="followNum" column="follow_num"></result>
+        <result property="vipLevel" column="vip_level_id"></result>
+        <result property="crateTime" column="crate_time"></result>
+        <result property="liveType" column="live_type_id"></result>
+        <result property="headImageUrl" column="head_image_url"></result>
 
-    <select id="queryList" resultType="com.wz.pumer.beans.UserBean" >
+
+    </resultMap>
+
+    <select id="queryList" resultType="UserBean" >
         select *  from  `blob_user`
     </select>
 
-    <select id="queryUserByNameAndPwd" resultType="com.wz.pumer.beans.UserBean">
+    <select id="queryUserByNameAndPwd" resultType="UserBean">
         SELECT * FROM `blob_user` WHERE `username`  = #{username} and `password` = #{password}
 
     </select>

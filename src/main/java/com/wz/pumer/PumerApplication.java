@@ -12,11 +12,11 @@ public class PumerApplication  extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(
-			SpringApplicationBuilder application) {
+			SpringApplicationBuilder application) { 
 		return application.sources(PumerApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PumerApplication.class, args);
+        SpringApplication.run(PumerApplication.class, args);
 	}
 }

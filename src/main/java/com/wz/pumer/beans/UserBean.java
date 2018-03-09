@@ -6,10 +6,15 @@ package com.wz.pumer.beans;
  * @description: 用户实体类
 */
 public class UserBean extends BaseBean{
-
     private int id;
-    private String username;
-    private String headimg;
+    private String name;
+    private String nickname;
+    private int followNum;
+    private int vipLevel;
+    private int crateTime;
+    private int liveType;
+    private int headImageUrl;
+
 
     public int getId() {
         return id;
@@ -19,28 +24,73 @@ public class UserBean extends BaseBean{
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getHeadimg() {
-        return headimg;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setHeadimg(String headimg) {
-        this.headimg = headimg;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getFollowNum() {
+        return followNum;
+    }
+
+    public void setFollowNum(int followNum) {
+        this.followNum = followNum;
+    }
+
+    public int getVipLevel() {
+        return vipLevel;
+    }
+
+    public void setVipLevel(int vipLevel) {
+        this.vipLevel = vipLevel;
+    }
+
+    public int getCrateTime() {
+        return crateTime;
+    }
+
+    public void setCrateTime(int crateTime) {
+        this.crateTime = crateTime;
+    }
+
+    public int getLiveType() {
+        return liveType;
+    }
+
+    public void setLiveType(int liveType) {
+        this.liveType = liveType;
+    }
+
+    public int getHeadImageUrl() {
+        return headImageUrl;
+    }
+
+    public void setHeadImageUrl(int headImageUrl) {
+        this.headImageUrl = headImageUrl;
     }
 
     @Override
     public String toString() {
         return "UserBean{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", headimg='" + headimg + '\'' +
+                ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", followNum=" + followNum +
+                ", vipLevel=" + vipLevel +
+                ", crateTime=" + crateTime +
+                ", liveType=" + liveType +
+                ", headImageUrl=" + headImageUrl +
                 '}';
     }
 }
