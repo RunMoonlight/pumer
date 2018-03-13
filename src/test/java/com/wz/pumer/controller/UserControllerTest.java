@@ -19,8 +19,8 @@ public class UserControllerTest {
     private IUserService userService;
     @Test
     public void getAll() {
-        List<UserBean> userBeans= userService.queryList();
+//        List<UserBean> userBeans= userService.queryList();
 
-        System.out.println("userBeans  Size:"+userBeans.size());
+//        System.out.println("userBeans  Size:"+userBeans.size());
     }
 }

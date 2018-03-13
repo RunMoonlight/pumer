@@ -29,13 +29,6 @@ public class UserController {
     @Autowired
     IUserDao userDao;
 
-    @RequestMapping(value = "/getall",method = RequestMethod.GET)
-    public String getAll(Model model){
-        List<UserBean> userBeans= userDao.queryList();
-        System.out.print(userBeans.toArray().toString());
-
-        return "";
-    }
     @ApiOperation(value="激活邮箱", notes="用户激活邮箱")
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "path")
     @RequestMapping(value = "/activate",method = RequestMethod.GET)

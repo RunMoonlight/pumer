@@ -3,6 +3,8 @@ package com.wz.pumer.controller;
 import com.wz.pumer.beans.PostBean;
 import com.wz.pumer.dao.IPostDao;
 import com.wz.pumer.service.IPostService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,13 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/post")
+@Api(value = "帖子")
 public class PostController {
 
     @Autowired
     IPostDao postDao;
+
+    @ApiOperation(value="获取所有帖子", notes="")
     @RequestMapping(value = "/getall",method = RequestMethod.GET)
     public String getAll(ModelMap model){
         List<PostBean> beans= postDao.getListPosts();
@@ -32,6 +37,7 @@ public class PostController {
     }
 
 
+    @ApiOperation(value="发布新的帖子", notes="")
     @RequestMapping(value = "/addpost",method = RequestMethod.GET)
     public String addPost(){
         PostBean bean=new PostBean("wz","cc",1,1,1,1,1,1,1,"url");
@@ -40,6 +46,7 @@ public class PostController {
         return "index";
     }
 
+    @ApiOperation(value="更新帖子", notes="")
     @RequestMapping(value = "/upost",method = RequestMethod.GET)
     public String updatePost(){
         PostBean bean=new PostBean(106,"wzcc","cc789",1,1,1,1,1,1,1,"url");
@@ -48,6 +55,7 @@ public class PostController {
         return "index";
     }
 
+    @ApiOperation(value="删除帖子", notes="")
     @RequestMapping(value = "/dpost",method = RequestMethod.GET)
     public String deletePost(){
         PostBean bean=new PostBean(106,"wz","cc",1,1,1,1,1,1,1,"url");
@@ -55,12 +63,4 @@ public class PostController {
         System.out.print(insertNum);
         return "index";
     }
-
-
-    @RequestMapping(value = "/catalog",method = RequestMethod.GET)
-    public String catalog(ModelMap model){
-        return "catalog";
-    }
-
-
 }
