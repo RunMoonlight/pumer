@@ -5,6 +5,8 @@ import com.wz.pumer.dao.IPostDao;
 import com.wz.pumer.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,9 +24,10 @@ public class PostController {
     @Autowired
     IPostDao postDao;
     @RequestMapping(value = "/getall",method = RequestMethod.GET)
-    public String getAll(){
+    public String getAll(ModelMap model){
         List<PostBean> beans= postDao.getListPosts();
-        System.out.print(beans.size());
+        model.addAttribute("postBeans",beans);
+        model.addAttribute("post","post");
         return "index";
     }
 
