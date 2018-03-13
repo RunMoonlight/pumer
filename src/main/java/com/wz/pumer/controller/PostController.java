@@ -55,4 +55,12 @@ public class PostController {
         System.out.print(insertNum);
         return "index";
     }
+
+
+    @RequestMapping(value = "/catalog",method = RequestMethod.GET)
+    public String catalog(ModelMap model){
+        return "catalog";
+    }
+
+
 }
