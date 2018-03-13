@@ -3,7 +3,7 @@ package com.wz.pumer.beans;
 /**
  * @author: wangzhen
  * @date:   2017/10/19
- * @description: 用户实体类
+ * @description: 帖子实体类
 */
 public class PostBean extends BaseBean{
 
@@ -18,6 +18,33 @@ public class PostBean extends BaseBean{
     private int crateTime;
     private int liveTypeId;
     private String backgroundUrl;
+
+    public PostBean( String title, String content, int authorId, int browseNum, int likesNum, int themeId, int hotLevelId, int crateTime, int liveTypeId, String backgroundUrl) {
+        this.title = title;
+        this.content = content;
+        this.authorId = authorId;
+        this.browseNum = browseNum;
+        this.likesNum = likesNum;
+        this.themeId = themeId;
+        this.hotLevelId = hotLevelId;
+        this.crateTime = crateTime;
+        this.liveTypeId = liveTypeId;
+        this.backgroundUrl = backgroundUrl;
+    }
+
+    public PostBean(int id, String title, String content, int authorId, int browseNum, int likesNum, int themeId, int hotLevelId, int crateTime, int liveTypeId, String backgroundUrl) {
+        this.id=id;
+        this.title = title;
+        this.content = content;
+        this.authorId = authorId;
+        this.browseNum = browseNum;
+        this.likesNum = likesNum;
+        this.themeId = themeId;
+        this.hotLevelId = hotLevelId;
+        this.crateTime = crateTime;
+        this.liveTypeId = liveTypeId;
+        this.backgroundUrl = backgroundUrl;
+    }
 
     public int getId() {
         return id;

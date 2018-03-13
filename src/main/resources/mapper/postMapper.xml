@@ -15,12 +15,7 @@
         <result property="crateTime" column="crate_time"></result>
         <result property="liveTypeId" column="live_type_id"></result>
         <result property="backgroundUrl" column="background_url"></result>
-
-
     </resultMap>
-
-
-
 
     <select id="getListPosts" resultMap="PostBean" >
           select
@@ -38,9 +33,34 @@
           from `pumer_post`
     </select>
 
-    <select id="getUserByNameAndPwd" resultMap="PostBean">
-        SELECT * FROM `blob_user` WHERE `username`  = #{username} and `password` = #{password}
+    <insert id="addPost" parameterType="com.wz.pumer.beans.PostBean" >
 
-    </select>
-    
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+        insert into `pumer_post` (`title`,`content`,`author_id`,`browse_num`,`likes_num`,`theme_id`,`hot_level_id`,`crate_time`,`live_type_id`,`background_url`)
+        values(#{title},#{content},${authorId},${browseNum},${likesNum},${themeId},${hotLevelId},${crateTime},${liveTypeId},#{backgroundUrl});
+
+
+    </insert>
+
+    <update id="updatePost" parameterType="com.wz.pumer.beans.PostBean">
+        update `pumer_post` SET
+        `title`=#{title},
+        `content`=#{content},
+        `author_id`=${authorId},
+        `browse_num`=${browseNum},
+        `likes_num`=${likesNum},
+        `theme_id`=${themeId},
+        `hot_level_id`=${hotLevelId},
+        `crate_time`=${crateTime},
+        `live_type_id`=${liveTypeId},
+        `background_url`=#{backgroundUrl}
+        where `id` = ${id};
+    </update>
+
+    <delete id="deletePost" parameterType="com.wz.pumer.beans.PostBean">
+        DELETE FROM `pumer_post` WHERE `id` = id;
+    </delete>
+
 </mapper>

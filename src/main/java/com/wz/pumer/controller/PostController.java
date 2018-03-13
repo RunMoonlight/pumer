@@ -27,4 +27,29 @@ public class PostController {
         System.out.print(beans.size());
         return "index";
     }
+
+
+    @RequestMapping(value = "/addpost",method = RequestMethod.GET)
+    public String addPost(){
+        PostBean bean=new PostBean("wz","cc",1,1,1,1,1,1,1,"url");
+        int insertNum= postDao.addPost(bean);
+        System.out.print(insertNum);
+        return "index";
+    }
+
+    @RequestMapping(value = "/upost",method = RequestMethod.GET)
+    public String updatePost(){
+        PostBean bean=new PostBean(106,"wzcc","cc789",1,1,1,1,1,1,1,"url");
+        int insertNum=postDao.updatePost(bean);
+        System.out.print(insertNum);
+        return "index";
+    }
+
+    @RequestMapping(value = "/dpost",method = RequestMethod.GET)
+    public String deletePost(){
+        PostBean bean=new PostBean(106,"wz","cc",1,1,1,1,1,1,1,"url");
+        int insertNum= postDao.deletePost(bean);
+        System.out.print(insertNum);
+        return "index";
+    }
 }

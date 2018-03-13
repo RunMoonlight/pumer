@@ -17,18 +17,29 @@ public class IUserServiceImpl implements IUserService {
     @Autowired
     public IUserDao userDao;
 
+
     @Override
-    public List<UserBean> queryList() {
-        return userDao.queryList();
+    public UserBean loginByNameAndPwd(String name, String pwd) {
+        return userDao.loginByNameAndPwd(name,pwd);
     }
 
     @Override
-    public UserBean queryUserByNameAndPwd(String name, String pwd) {
-        return userDao.queryUserByNameAndPwd(name,pwd);
+    public UserBean loginByqq(String qq) {
+        return userDao.loginByqq(qq);
+    }
+
+    @Override
+    public UserBean getUserById(String id) {
+        return userDao.getUserById(id);
     }
 
     @Override
     public int updateUserInfo(UserBean bean) {
         return userDao.updateUserInfo(bean);
+    }
+
+    @Override
+    public int regUser(UserBean bean) {
+        return userDao.regUser(bean);
     }
 }

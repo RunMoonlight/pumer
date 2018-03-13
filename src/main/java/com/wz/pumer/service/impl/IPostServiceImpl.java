@@ -23,7 +23,17 @@ public class IPostServiceImpl implements IPostService {
     }
 
     @Override
-    public PostBean getUserByNameAndPwd(String name, String pwd) {
-        return postDao.getUserByNameAndPwd(name,pwd);
+    public int addPost(PostBean bean) {
+        return postDao.addPost(bean);
+    }
+
+    @Override
+    public int updatePost(PostBean postBean) {
+        return postDao.updatePost(postBean);
+    }
+
+    @Override
+    public int deletePost(PostBean postBean) {
+        return postDao.deletePost(postBean);
     }
 }

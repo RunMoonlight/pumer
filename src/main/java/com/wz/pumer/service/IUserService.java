@@ -2,6 +2,7 @@ package com.wz.pumer.service;
 
 
 import com.wz.pumer.beans.UserBean;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,9 +11,13 @@ import java.util.List;
  */
 public interface IUserService {
 
-    List<UserBean> queryList();
+    UserBean loginByNameAndPwd(String name, String pwd);
 
-    UserBean queryUserByNameAndPwd(String name, String pwd);
+    UserBean loginByqq(String qq);
+
+    UserBean getUserById( String id);
 
     int updateUserInfo(UserBean bean);
+
+    int regUser(UserBean bean);
 }
