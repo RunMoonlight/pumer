@@ -1,6 +1,5 @@
 package com.wz.pumer.controller;
 
-import com.wz.pumer.beans.UserBean;
 import com.wz.pumer.dao.IUserDao;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -10,10 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import sun.rmi.runtime.Log;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 
 /**
@@ -58,6 +53,13 @@ public class UserController {
     }
 
     @ApiOperation(value="用户个人登入", notes="")
+    @RequestMapping(value = "/loginpost",method = RequestMethod.POST)
+    public String loginpwd(Model model){
+        System.out.print("cc");
+        return "user/login";
+    }
+
+    @ApiOperation(value="用户个人登入", notes="")
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(Model model){
 
@@ -83,5 +85,12 @@ public class UserController {
     public String set(Model model){
 
         return "user/set";
+    }
+
+
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public String index(Model model){
+
+        return "index";
     }
 }

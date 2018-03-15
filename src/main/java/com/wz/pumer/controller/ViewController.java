@@ -111,13 +111,5 @@ public class ViewController {
         return "jie/add";
     }
 
-    /*
-     案例
-    */
-    @RequestMapping(value = "/case/case", method = RequestMethod.GET)
-    public String getCases(Model model) {
-
-        return "case/case";
-    }
 
 }
