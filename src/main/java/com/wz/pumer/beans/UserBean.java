@@ -9,6 +9,7 @@ public class UserBean extends BaseBean{
     private int id;
     private String name;
     private String nickname;
+    private String password;
     private int followNum;
     private int vipLevel;
     private int crateTime;
@@ -78,6 +79,15 @@ public class UserBean extends BaseBean{
 
     public void setHeadImageUrl(int headImageUrl) {
         this.headImageUrl = headImageUrl;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

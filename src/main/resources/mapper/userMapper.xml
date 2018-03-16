@@ -17,15 +17,15 @@
     </resultMap>
 
     <select id="queryList" resultType="UserBean" >
-        select *  from  `blob_user`
+        select *  from  `pumer_user`
     </select>
 
-    <select id="queryUserByNameAndPwd" resultType="UserBean">
-        SELECT * FROM `blob_user` WHERE `username`  = #{username} and `password` = #{password}
+    <select id="loginByNameAndPwd" resultType="UserBean">
+        SELECT * FROM `pumer_user` WHERE `name`  = #{username} and `password` = #{password}
 
     </select>
     <update id="updateUserInfo" parameterType="com.wz.pumer.beans.UserBean">
-        UPDATE `blob_user`
+        UPDATE `pumer_user`
          <if test="headimg!=null">
              SET `headimg` =#{headimg}
          </if>
