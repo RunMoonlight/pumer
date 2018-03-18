@@ -10,6 +10,18 @@ spring:
   mvc:
     view:
       404:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 0
 datasource:
    druid:
       url: jdbc:mysql://qdm114116425.my3w.com:3306/qdm114116425_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true
