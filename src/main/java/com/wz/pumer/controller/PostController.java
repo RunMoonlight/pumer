@@ -58,9 +58,9 @@ public class PostController {
     @ApiOperation(value="删除帖子", notes="")
     @RequestMapping(value = "/dpost",method = RequestMethod.GET)
     public String deletePost(){
-        PostBean bean=new PostBean(106,"wz","cc",1,1,1,1,1,1,1,"url");
-        int insertNum= postDao.deletePost(bean);
-        System.out.print(insertNum);
+//        PostBean bean=new PostBean(106,"wz","cc",1,1,1,1,1,1,1,"url");
+//        int insertNum= postDao.deletePost(bean);
+//        System.out.print(insertNum);
         return "index";
     }
 }

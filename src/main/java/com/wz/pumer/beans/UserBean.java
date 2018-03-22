@@ -9,13 +9,28 @@ public class UserBean extends BaseBean{
     private int id;
     private String name;
     private String nickname;
+    private String email;
     private String password;
     private int followNum;
     private int vipLevel;
     private int crateTime;
     private int liveType;
-    private int headImageUrl;
+    private String headImageUrl;
 
+    public UserBean(){
+
+    }
+    public UserBean(String name, String nickname, String email, String password, int followNum, int vipLevel, int crateTime, int liveType, String headImageUrl) {
+        this.name = name;
+        this.nickname = nickname;
+        this.email = email;
+        this.password = password;
+        this.followNum = followNum;
+        this.vipLevel = vipLevel;
+        this.crateTime = crateTime;
+        this.liveType = liveType;
+        this.headImageUrl = headImageUrl;
+    }
 
     public int getId() {
         return id;
@@ -39,6 +54,14 @@ public class UserBean extends BaseBean{
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getFollowNum() {
@@ -73,11 +96,11 @@ public class UserBean extends BaseBean{
         this.liveType = liveType;
     }
 
-    public int getHeadImageUrl() {
+    public String getHeadImageUrl() {
         return headImageUrl;
     }
 
-    public void setHeadImageUrl(int headImageUrl) {
+    public void setHeadImageUrl(String headImageUrl) {
         this.headImageUrl = headImageUrl;
     }
 

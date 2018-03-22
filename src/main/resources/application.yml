@@ -22,6 +22,8 @@ spring:
         max-idle: 8
         min-idle: 0
     timeout: 0
+  session:
+    store-type: redis
 datasource:
    druid:
       url: jdbc:mysql://qdm114116425.my3w.com:3306/qdm114116425_db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&createDatabaseIfNotExist=true

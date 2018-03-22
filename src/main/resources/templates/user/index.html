@@ -9,6 +9,8 @@
   <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
   <link rel="stylesheet" href="../../res/layui/css/layui.css">
   <link rel="stylesheet" href="../../res/css/global.css">
+
+  <script th:src="@{../res/layui/layui.js}"></script>
 </head>
 <body>
 
@@ -103,7 +105,6 @@
 
 <div th:include="common/footer :: footer"></div>
 
-<script src="../../res/layui/layui.js"></script>
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

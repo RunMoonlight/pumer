@@ -3,10 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wz.pumer.dao.IUserDao">
 
-    <resultMap id="UserBean" type="com.wz.pumer.beans.PostBean">
+    <resultMap id="UserBean" type="com.wz.pumer.beans.UserBean">
         <id property="id" column="id"></id>
         <result property="name" column="name"></result>
-        <result property="nickname" column="name"></result>
+        <result property="nickname" column="nickname"></result>
+        <result property="email" column="email"></result>
         <result property="followNum" column="follow_num"></result>
         <result property="vipLevel" column="vip_level_id"></result>
         <result property="crateTime" column="crate_time"></result>
@@ -24,6 +25,21 @@
         SELECT * FROM `pumer_user` WHERE `name`  = #{username} and `password` = #{password}
 
     </select>
+
+    <insert id="regUser" parameterType="com.wz.pumer.beans.UserBean" >
+
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+
+        insert into `pumer_user` (`name`,`password`,`nickname`,`email`,`follow_num`,`vip_level_id`,`crate_time`,`live_type_id`,`head_image_url`)
+        values(#{name},#{password},#{nickname},#{email},${followNum},${vipLevel},${crateTime},${liveType},#{headImageUrl});
+
+
+
+
+    </insert>
+
     <update id="updateUserInfo" parameterType="com.wz.pumer.beans.UserBean">
         UPDATE `pumer_user`
          <if test="headimg!=null">
