@@ -49,8 +49,13 @@ mybatis:
   check-config-location: true
 
 pagehelper:
-  offset-as-page-num: true
-  row-bounds-with-count: true
-  page-size-zero: true
-  reasonable: true
-  support-methods-arguments: true
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+mapper:
+    mappers:
+        - com.wz.pumer.utils.MyMapper
+    not-empty: false
+    identity: MYSQL

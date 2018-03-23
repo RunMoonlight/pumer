@@ -1,8 +1,10 @@
 package com.wz.pumer.controller;
 
 import com.wz.pumer.beans.UserBean;
+import com.wz.pumer.beans.UserOpenBean;
 import com.wz.pumer.beans.param.RegParam;
 import com.wz.pumer.dao.IUserDao;
+import com.wz.pumer.dao.IUserOpenDao;
 import com.wz.pumer.utils.TimeUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -31,6 +34,8 @@ public class UserController {
 
     @Autowired
     IUserDao userDao;
+    @Autowired
+    IUserOpenDao userOpenDao;
 
     @ApiOperation(value="激活邮箱", notes="用户激活邮箱")
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "path")
@@ -126,6 +131,12 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "/open",method = RequestMethod.GET)
+    public String open(Model model){
+        List<UserOpenBean> beans= userOpenDao.selectAll();
+
+        return "open";
+    }
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(Model model){
 
